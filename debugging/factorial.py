@@ -5,7 +5,7 @@ def factorial(n):
     result = 1
     while n > 1:
         result *= n
-        n -= 1 # AAA
+        n -= 1 # AAA #
     return result
 
 f = factorial(int(sys.argv[1]))
