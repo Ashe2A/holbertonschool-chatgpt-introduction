@@ -19,7 +19,7 @@ class Minesweeper:
 		clear_screen()
 		print('  ' + ' '.join(f'{i:3}' for i in range(self.width)))
 		for y in range(self.height):
-			print(f'{y:3}', y, end=' ')
+			print(f'{y:3}', end=' ')
 			for x in range(self.width):
 				if reveal or self.revealed[y][x]:
 					if (y * self.width + x) in self.mines:
