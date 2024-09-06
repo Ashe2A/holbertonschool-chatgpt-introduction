@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 def print_board(board):
-	print('   ' + ' '.join(f'{i:3}' for i in range(3)))
+	print('  ' + ' '.join(f'{i:3}' for i in range(3)))
 	for y in range(3):
-		print(f'{y:3} ' + ' | '.join(f'{board[y][x]:3}' for x in range(3)))
+		print(f'{y:3}' + ' | '.join(f'{board[y][x]:3}' for x in range(3)))
 		if y < 2:
 			print('    ' + ' '.join('___' for _ in range(3)))
 
