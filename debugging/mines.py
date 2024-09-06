@@ -26,7 +26,10 @@ class Minesweeper:
 						print(f'{"*":3}', end=' ')
 					else:
 						count = self.count_mines_nearby(x, y)
-						print(f'{count:3 if count > 0 else " ":3}', end=' ')
+						if count > 0:
+							print(f'{count:3}', end=' ')
+						else:
+							print(f'{" ":3}', end=' ')
 				else:
 					print(f'{".":3}', end=' ')
 			print()
