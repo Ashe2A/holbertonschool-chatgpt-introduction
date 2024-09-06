@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def print_board(board):
 	for y in range(3):
-		print(' | '.join(f'{board[y][x]:^3}' for x in range(3)))
+		print('|'.join(f'{board[y][x]:^3}' for x in range(3)))
 		if y < 2:
 			print(' '.join('___' for _ in range(3)))
 
