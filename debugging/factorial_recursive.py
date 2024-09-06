@@ -6,10 +6,10 @@ def factorial(n):
 	The factorial mathematical function.
 
 	Parameters:
-	n (int): Positive integer to calculate the factorial of
+		n (int): Positive integer to calculate the factorial of
  
  	Returns:
-	int: Result of n! (factorial of n)
+		int: Result of n! (factorial of n)
 	"""
 	if n <= 1:
 		return 1
