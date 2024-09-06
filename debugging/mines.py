@@ -19,17 +19,14 @@ class Minesweeper:
 		clear_screen()
 		print('   ' + ' '.join(f'{i:3}' for i in range(self.width)))
 		for y in range(self.height):
-			print(f'{y:3}', end='  ')
+			print(f'{y:3}', end=' ')
 			for x in range(self.width):
 				if reveal or self.revealed[y][x]:
 					if (y * self.width + x) in self.mines:
 						print(f'{"*":3}', end=' ')
 					else:
 						count = self.count_mines_nearby(x, y)
-						if count > 0:
-							print(f'{count:3}', end=' ')
-						else:
-							print(f'{" ":3}', end=' ')
+						print(f'{count:3}' if count > 0 else f'{" ":3}', end=' ')
 				else:
 					print(f'{".":3}', end=' ')
 			print()
