@@ -25,11 +25,23 @@ def main():
         if action.lower() == 'exit':
             break
         elif action.lower() == 'deposit':
-            amount = float(input("Enter the amount to deposit: $"))
-            cb.deposit(amount)
+            try:
+                amount = float(input("Enter the amount to deposit: $"))
+                if amount <= 0:
+                    print("Please enter a positive amount.")
+                else:
+                    cb.deposit(amount)
+            except ValueError:
+                print("Invalid input. Please enter a valid numeric amount.")
         elif action.lower() == 'withdraw':
-            amount = float(input("Enter the amount to withdraw: $"))
-            cb.withdraw(amount)
+            try:
+                amount = float(input("Enter the amount to withdraw: $"))
+                if amount <= 0:
+                    print("Please enter a positive amount.")
+                else:
+                    cb.withdraw(amount)
+            except ValueError:
+                print("Invalid input. Please enter a valid numeric amount.")
         elif action.lower() == 'balance':
             cb.get_balance()
         else:

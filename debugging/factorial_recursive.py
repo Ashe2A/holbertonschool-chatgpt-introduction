@@ -7,8 +7,10 @@ def factorial(n):
 	if n <= 1:
 		return 1
 	else:
+		# Multiply the current number with the factorial of the previous one
 		return n * factorial(n - 1)
-	# Multiply the current number with the factorial of the previous one
 
-f = factorial(int(sys.argv[1])) # f is factorial of the input argument
-print(f) # Print the result
+# f is factorial of the input argument (converted to int beforehand)
+f = factorial(int(sys.argv[1]))
+# Print the result
+print(f)
