@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 def print_board(board):
-	print('   ' + ' '.join(f'{i:3}' for i in range(3)))
+	print('   ' + '   '.join(f'{i:1}' for i in range(3)))
+	print('  ───┼───┼───')
 	for y in range(3):
-		print(f'{y:3}', end=' ')
-		for x in range(3):
-			print(f'{board[y][x]:3}', end=' ')
-		print()
+		row = ' │ '.join(board[y])
+		print(f'{y:1} │ {row} │')
+		if y < 2:
+			print('  ───┼───┼───')
+		else:
+			print('  ───┼───┼───')
 
 def check_winner(board):
 	for row in board:
@@ -58,3 +61,4 @@ def tic_tac_toe():
 
 if __name__ == "__main__":
 	tic_tac_toe()
+	
