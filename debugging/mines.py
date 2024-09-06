@@ -17,7 +17,7 @@ class Minesweeper:
 
 	def print_board(self, reveal=False):
 		clear_screen()
-		print('   ' + ' '.join(f'{i:^3}' for i in range(self.width)))
+		print('    ' + ' '.join(f'{i:^3}' for i in range(self.width)))
 		for y in range(self.height):
 			print(f'{y:^3}', end=' ')
 			for x in range(self.width):
