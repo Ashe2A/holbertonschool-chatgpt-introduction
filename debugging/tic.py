@@ -1,66 +1,60 @@
 #!/usr/bin/python3
-
 def print_board(board):
-	print("\nCurrent Board:")
-	print("  0   1   2")  # Print column indices
-	for i, row in enumerate(board):
-		print(i, end=" ")
-		print(" | ".join(row))
-		if i < 2:
-			print("  ---+---+---")  # Separator line between rows
-	print()  # Extra newline for spacing
+	print('   ' + ' '.join(f'{i:3}' for i in range(3)))
+	for y in range(3):
+		print(f'{y:3}', end=' ')
+		for x in range(3):
+			print(f'{board[y][x]:3}', end=' ')
+		print()
 
 def check_winner(board):
-	# Check rows and columns
-	for i in range(3):
-		if board[i][0] == board[i][1] == board[i][2] and board[i][0] != " ":
-			return board[i][0]
-		if board[0][i] == board[1][i] == board[2][i] and board[0][i] != " ":
-			return board[0][i]
-	
-	# Check diagonals
-	if board[0][0] == board[1][1] == board[2][2] and board[0][0] != " ":
-		return board[0][0]
-	if board[0][2] == board[1][1] == board[2][0] and board[0][2] != " ":
-		return board[0][2]
-
-	return None
-
-def is_full(board):
 	for row in board:
-		if " " in row:
-			return False
-	return True
+		if row.count(row[0]) == len(row) and row[0] != " ":
+			return True
+
+	for col in range(len(board[0])):
+		if board[0][col] == board[1][col] == board[2][col] and board[0][col] != " ":
+			return True
+
+	if board[0][0] == board[1][1] == board[2][2] and board[0][0] != " ":
+		return True
+
+	if board[0][2] == board[1][1] == board[2][0] and board[0][2] != " ":
+		return True
+
+	return False
 
 def tic_tac_toe():
 	board = [[" "]*3 for _ in range(3)]
 	player = "X"
-	while True:
+	moves = 0
+	max_moves = 9
+
+	while not check_winner(board) and moves < max_moves:
 		print_board(board)
 		try:
 			row = int(input(f"Enter row (0, 1, or 2) for player {player}: "))
 			col = int(input(f"Enter column (0, 1, or 2) for player {player}: "))
-			
+
 			if row not in range(3) or col not in range(3):
-				print("Invalid input! Please enter a number between 0 and 2.")
+				print("Invalid input. Please enter row and column between 0 and 2.")
 				continue
-			
+
 			if board[row][col] == " ":
 				board[row][col] = player
-				winner = check_winner(board)
-				if winner:
+				moves += 1
+				if check_winner(board):
 					print_board(board)
-					print(f"Player {winner} wins!")
-					break
-				if is_full(board):
-					print_board(board)
-					print("The game is a draw!")
-					break
+					print(f"Player {player} wins!")
+					return
 				player = "O" if player == "X" else "X"
 			else:
 				print("That spot is already taken! Try again.")
 		except ValueError:
-			print("Invalid input! Please enter a number.")
+			print("Invalid input. Please enter numbers only.")
+
+	print_board(board)
+	print("It's a draw!")
 
 if __name__ == "__main__":
 	tic_tac_toe()
