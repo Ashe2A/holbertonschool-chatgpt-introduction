@@ -2,7 +2,7 @@
 def print_board(board):
     for row in board:
         print(" | ".join(row))
-        print("__ " * 3)
+        print("__  " * 3)
 
 def check_winner(board):
     for row in board:
