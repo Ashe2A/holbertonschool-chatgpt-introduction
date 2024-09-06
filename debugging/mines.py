@@ -17,7 +17,7 @@ class Minesweeper:
 
 	def print_board(self, reveal=False):
 		clear_screen()
-		print('  ' + ' '.join(f'{i:3}' for i in range(self.width)))
+		print('   ' + ' '.join(f'{i:3}' for i in range(self.width)))
 		for y in range(self.height):
 			print(f'{y:3}', end=' ')
 			for x in range(self.width):
@@ -62,7 +62,7 @@ class Minesweeper:
 			self.print_board()
 			try:
 				x = int(input("Enter x coordinate: ".format(self.width - 1)))
-				y = int(input("Enter y coordinate: ".format(self.width - 1)))
+				y = int(input("Enter y coordinate: ".format(self.height - 1)))
 				if (x < 0 or x >= self.width or y < 0 or y >= self.height):
 					print("Coordinates error. Retry.")
 					continue
